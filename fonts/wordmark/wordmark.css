@@ -1,0 +1,8 @@
+/* This includes only the characters for "Couchers.org" */
+@font-face {
+  font-family: "Mansalva";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://cdn.couchers.org/fonts/wordmark/wordmark.woff2) format("woff2"), url(https://cdn.couchers.org/fonts/wordmark/wordmark.woff) format("woff");
+}
