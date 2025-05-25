@@ -1,8 +1,9 @@
 export AWS_PROFILE=couchers
 
-aws s3 sync ./maps s3://cdn.couchers.org/maps --delete
-
-aws s3 cp index.html s3://cdn.couchers.org
-aws s3 cp error.html s3://cdn.couchers.org
-
-aws s3 sync ./fonts s3://cdn.couchers.org/fonts
+aws s3 sync . s3://cdn.couchers.org --delete \
+  --exclude "static/_next/*" \
+  --exclude ".git/*" \
+  --exclude ".gitignore" \
+  --exclude "license.md" \
+  --exclude "readme.md" \
+  --exclude "upload.sh"

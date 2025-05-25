@@ -1,1 +1,1 @@
-# Couchers.org basemap style and static files (fonts, sprites, etc)
+# Couchers.org static files and basemap style (fonts, sprites, etc)
