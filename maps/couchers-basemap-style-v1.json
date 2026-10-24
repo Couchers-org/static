@@ -2466,8 +2466,15 @@
                   "Inter Tight Regular"
               ],
               "text-field": [
-                  "get",
-                  "name:en"
+                  "coalesce",
+                  [
+                      "get",
+                      "name:en"
+                  ],
+                  [
+                      "get",
+                      "name"
+                  ]
               ],
               "text-size": 12,
               "text-letter-spacing": 0.3
@@ -2494,8 +2501,15 @@
                   "Inter Tight Italic"
               ],
               "text-field": [
-                  "get",
-                  "name:en"
+                  "coalesce",
+                  [
+                      "get",
+                      "name:en"
+                  ],
+                  [
+                      "get",
+                      "name"
+                  ]
               ],
               "text-size": [
                   "interpolate",
@@ -2544,8 +2558,15 @@
                   "Inter Tight Regular"
               ],
               "text-field": [
-                  "get",
-                  "name:en"
+                  "coalesce",
+                  [
+                      "get",
+                      "name:en"
+                  ],
+                  [
+                      "get",
+                      "name"
+                  ]
               ],
               "text-size": 13
           },
@@ -2579,8 +2600,15 @@
                   "Inter Tight Medium"
               ],
               "text-field": [
-                  "get",
-                  "name:en"
+                  "coalesce",
+                  [
+                      "get",
+                      "name:en"
+                  ],
+                  [
+                      "get",
+                      "name"
+                  ]
               ],
               "text-size": [
                   "interpolate",
@@ -2622,8 +2650,15 @@
                   "Inter Tight Medium"
               ],
               "text-field": [
-                  "get",
-                  "name:en"
+                  "coalesce",
+                  [
+                      "get",
+                      "name:en"
+                  ],
+                  [
+                      "get",
+                      "name"
+                  ]
               ],
               "text-size": [
                   "interpolate",
@@ -2673,8 +2708,15 @@
                   "Inter Tight Regular"
               ],
               "text-field": [
-                  "get",
-                  "name:en"
+                  "coalesce",
+                  [
+                      "get",
+                      "name:en"
+                  ],
+                  [
+                      "get",
+                      "name"
+                  ]
               ],
               "text-size": 14
           },
@@ -2699,7 +2741,17 @@
                   "get",
                   "pmap:min_zoom"
               ],
-              "text-field": "{name:en}",
+              "text-field": [
+                  "coalesce",
+                  [
+                      "get",
+                      "name:en"
+                  ],
+                  [
+                      "get",
+                      "name"
+                  ]
+              ],
               "text-font": [
                   "Inter Tight Regular"
               ],
@@ -2767,7 +2819,17 @@
                   ""
               ],
               "icon-size": 0.7,
-              "text-field": "{name:en}",
+              "text-field": [
+                  "coalesce",
+                  [
+                      "get",
+                      "name:en"
+                  ],
+                  [
+                      "get",
+                      "name"
+                  ]
+              ],
               "text-font": [
                   "case",
                   [
@@ -3015,8 +3077,15 @@
                   ],
                   6,
                   [
-                      "get",
-                      "name:en"
+                      "coalesce",
+                      [
+                          "get",
+                          "name:en"
+                      ],
+                      [
+                          "get",
+                          "name"
+                      ]
                   ]
               ],
               "text-font": [
@@ -3060,7 +3129,17 @@
                   "get",
                   "pmap:min_zoom"
               ],
-              "text-field": "{name:en}",
+              "text-field": [
+                  "coalesce",
+                  [
+                      "get",
+                      "name:en"
+                  ],
+                  [
+                      "get",
+                      "name"
+                  ]
+              ],
               "text-font": [
                   "Inter 28pt SemiBold"
               ],

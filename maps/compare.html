@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Map comparison</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="maplibre-gl/maplibre-gl.css" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+    }
+
+    #old {
+      left: 0;
+    }
+
+    #new {
+      right: 0;
+      border-left: 2px solid #333;
+    }
+
+    .label {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      z-index: 1;
+      padding: 4px 8px;
+      background: rgba(255, 255, 255, 0.85);
+      font: 13px sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="old" class="map"><div class="label">Live (cdn.couchers.org)</div></div>
+  <div id="new" class="map"><div class="label">Local</div></div>
+  <script type="module">
+    import * as maplibregl from "./maplibre-gl/maplibre-gl.mjs";
+
+    const attributionControl = {
+      customAttribution: null,
+      compact: true
+    };
+
+    const oldMap = new maplibregl.Map({
+      container: "old",
+      style: "https://cdn.couchers.org/maps/couchers-basemap-style-v1.json",
+      attributionControl
+    });
+
+    const newMap = new maplibregl.Map({
+      container: "new",
+      style: "couchers-basemap-style-v1.json",
+      hash: true,
+      attributionControl
+    });
+
+    // jumpTo fires "move" synchronously, so the flag stops the two maps echoing each other
+    let syncing = false;
+    function follow(from, to) {
+      from.on("move", () => {
+        if (syncing) return;
+        syncing = true;
+        to.jumpTo({
+          center: from.getCenter(),
+          zoom: from.getZoom(),
+          bearing: from.getBearing(),
+          pitch: from.getPitch()
+        });
+        syncing = false;
+      });
+    }
+    follow(oldMap, newMap);
+    follow(newMap, oldMap);
+
+    oldMap.jumpTo({
+      center: newMap.getCenter(),
+      zoom: newMap.getZoom(),
+      bearing: newMap.getBearing(),
+      pitch: newMap.getPitch()
+    });
+  </script>
+</body>
+
+</html>
